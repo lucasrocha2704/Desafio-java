@@ -21,12 +21,10 @@ public class RegistroController {
     private final DiscoGrupo grupoDeDiscos;
     private final ProcessoGrupo grupoDeProcesso;
     private final Rede rede;
-    // Fim dos atributos de captura de valores
     private final ComponenteModel componenteModel;
     private final RegistroModel registroModel;
 
     public RegistroController() {
-        // Atributos para captura dos valores
         Looca looca = new Looca();
         this.memoria = looca.getMemoria();
         this.processador = looca.getProcessador();
@@ -51,7 +49,7 @@ public class RegistroController {
     }
 
     public void inserirRAM() {
-        Double ram = (double) (memoria.getEmUso() * 100 / memoria.getTotal());
+        Double ram = (double) (memoria.getEmUso() * 100) / memoria.getTotal();
 
         for (ComponenteModel model : componenteModel.pegarComponentePorNome("Memoria")) {
             componenteModel.setIdComponenteServidor(model.getIdComponenteServidor());
