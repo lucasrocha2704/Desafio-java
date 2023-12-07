@@ -7,11 +7,7 @@ import java.util.List;
 public class ComponenteModel {
 
     private Integer idComponenteServidor;
-    private Integer fkServidor;
-    private String nome;
-    private Integer fkUnidadeMedida;
-    private Integer idComponente;
-    private ComponenteDao componenteDao;
+    private final ComponenteDao componenteDao;
 
     public ComponenteModel() {
         componenteDao = new ComponenteDao();

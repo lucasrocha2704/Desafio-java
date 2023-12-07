@@ -1,7 +1,6 @@
 package models;
 
 import dao.UsuarioDao;
-
 import java.util.List;
 
 public class UsuarioModel {
@@ -18,44 +17,10 @@ public class UsuarioModel {
 
     public UsuarioModel() {
         this.usuarioDao = new UsuarioDao();
-//        this.email = email;
-//        this.senha = senha;
     }
 
     public List<UsuarioModel> buscarUsuario(String email) {
         return usuarioDao.buscarUsuario(email);
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(int empresa) {
-        this.empresa = empresa;
-    }
-
-    public int getAdmin() {
-        return admin;
-    }
-
-    public void setAdmin(int admin) {
-        this.admin = admin;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public String getSenha() {

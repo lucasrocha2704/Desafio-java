@@ -4,9 +4,7 @@ import dao.ServidorDao;
 import java.util.List;
 
 public class ServidorModel {
-    private Integer idServidor;
-    private Integer fkLocal;
-    private ServidorDao servidorDao = new ServidorDao();
+    private final ServidorDao servidorDao;
 
     public ServidorModel() {
         this.servidorDao = new ServidorDao();
