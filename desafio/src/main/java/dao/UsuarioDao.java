@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UsuarioDao {
-    private JdbcTemplate con;
-    private Conexao conexao = new Conexao();
+    private final JdbcTemplate con;
 
     private List<UsuarioModel> usuarios;
     public UsuarioDao(){
+        Conexao conexao = new Conexao();
         this.con = conexao.getConexaoDoBanco();
         this.usuarios = new ArrayList<>();
     }

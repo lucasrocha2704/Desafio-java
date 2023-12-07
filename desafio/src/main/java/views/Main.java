@@ -3,7 +3,6 @@ package views;
 // Necessita de import pois estão em pacotes diferetes
 
 import controllers.RegistroController;
-
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 

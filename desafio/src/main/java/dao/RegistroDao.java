@@ -6,26 +6,21 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.SimpleTimeZone;
 
 public class RegistroDao {
-    private JdbcTemplate con;
-    private Conexao conexao = new Conexao();
+    private final JdbcTemplate con;
     private LocalDateTime horario;
     private DateTimeFormatter formatter;
-    private Locale local;
-    private ComponenteDao componenteDao;
+    private final Locale local;
 
     public RegistroDao(){
+        Conexao conexao = new Conexao();
         this.con = conexao.getConexaoDoBanco();
         this.local = new Locale("pt","BR");
-        this.componenteDao = new ComponenteDao();
     }
 
     public Integer inserirDadosBanco(Double registro, Integer fkComponente) {

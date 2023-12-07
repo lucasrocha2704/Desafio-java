@@ -7,10 +7,10 @@ import models.ServidorModel;
 import java.util.List;
 
 public class ServidorDao {
-    private JdbcTemplate con;
-    private Conexao conexao = new Conexao();
+    private final JdbcTemplate con;
 
     public ServidorDao(){
+        Conexao conexao = new Conexao();
         this.con = conexao.getConexaoDoBanco();
     }
 

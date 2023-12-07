@@ -4,7 +4,7 @@ import com.mysql.cj.jdbc.MysqlDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class Conexao {
-    private JdbcTemplate conexaoDoBanco;
+    private final JdbcTemplate conexaoDoBanco;
     public Conexao() {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setDatabaseName("streamoon");

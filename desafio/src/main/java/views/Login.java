@@ -46,34 +46,34 @@ public class Login {
     }
 
     public void menuMonitoramento() {
-        System.out.println("""
-                @======================================@\s
-                |  Escolha o que deseja monitorar      |
-                @--------------------------------------@
-                   1 - CPU           %s                \s
-                   2 - Memória RAM   %s                \s
-                   3 - Disco         %s                \s
-                   4 - Upload        %s                \s
-                   5 - Download      %s                \s
-                   6 - Processos     %s                \s
-                   7 - Todos                           \s
-                   8 - Iniciar Monitoramento           \s
-                @======================================@
-                """.formatted(selecionadoCPU ? "[selecionado]": "[não selecionado]",
-                              selecionadoRAM ? "[selecionado]": "[não selecionado]",
-                              selecionadoDisco ? "[selecionado]": "[não selecionado]",
-                              selecionadoUpload ? "[selecionado]": "[não selecionado]",
-                              selecionadoDownload ? "[selecionado]": "[não selecionado]",
-                              selecionadoProcesso ? "[selecionado]": "[não selecionado]"
-                ));
+        System.out.printf("""
+                        @======================================@\s
+                        |  Escolha o que deseja monitorar      |
+                        @--------------------------------------@
+                           1 - CPU           %s                \s
+                           2 - Memória RAM   %s                \s
+                           3 - Disco         %s                \s
+                           4 - Upload        %s                \s
+                           5 - Download      %s                \s
+                           6 - Processos     %s                \s
+                           7 - Todos                           \s
+                           8 - Iniciar Monitoramento           \s
+                        @======================================@
+                        %n""", selecionadoCPU ? "[selecionado]": "[não selecionado]",
+                      selecionadoRAM ? "[selecionado]": "[não selecionado]",
+                      selecionadoDisco ? "[selecionado]": "[não selecionado]",
+                      selecionadoUpload ? "[selecionado]": "[não selecionado]",
+                      selecionadoDownload ? "[selecionado]": "[não selecionado]",
+                      selecionadoProcesso ? "[selecionado]": "[não selecionado]"
+        );
     }
 
     public void menuDados(){
         String dados = registroController.getDados(selecionadoCPU, selecionadoRAM, selecionadoDisco, selecionadoUpload, selecionadoDownload, selecionadoProcesso);
-        System.out.println("""
+        System.out.printf("""
                 %s
                 @==================================@
-                """.formatted(dados));
+                %n""", dados);
     }
 
     public Boolean entrar() {
