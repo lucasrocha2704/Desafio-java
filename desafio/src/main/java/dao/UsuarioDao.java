@@ -28,7 +28,7 @@ public class UsuarioDao {
     }
 
     public Integer inserirUsuario(Integer empresa, String nome, String cpf ,String email, String senha){
-        String insert = "INSERT INTO Usuario VALUES(NULL, ?, 1, ?, ?, ?, ?)";
+        String insert = "INSERT INTO Usuario VALUES(NULL, ?, null, ?, ?, ?, ?)";
         return con.update(insert, empresa, nome, senha, cpf, email);
     }
 
