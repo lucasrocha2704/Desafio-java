@@ -1,5 +1,6 @@
 package dao;
 
+import models.EmpresaModel;
 import models.UsuarioModel;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -24,6 +25,16 @@ public class UsuarioDao {
                 new BeanPropertyRowMapper<>(UsuarioModel.class), email));
 
         return usuarios;
+    }
+
+    public Integer inserirUsuario(Integer empresa, String nome, String cpf ,String email, String senha){
+        String insert = "INSERT INTO Usuario VALUES(NULL, ?, 1, ?, ?, ?, ?)";
+        return con.update(insert, empresa, nome, senha, cpf, email);
+    }
+
+    public List<EmpresaModel> mostrarEmpresas(){
+        String select = "SELECT * FROM Empresa";
+        return con.query(select, new BeanPropertyRowMapper<>(EmpresaModel.class));
     }
 
 }

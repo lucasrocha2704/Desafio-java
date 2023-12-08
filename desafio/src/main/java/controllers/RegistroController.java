@@ -75,7 +75,7 @@ public class RegistroController {
     }
 
     public void inserirUpload() {
-        RedeInterface redeEscolhida = rede.getGrupoDeInterfaces().getInterfaces().get(0);
+        RedeInterface redeEscolhida = rede.getGrupoDeInterfaces().getInterfaces().get(1);
 
         Double upload = (double) (redeEscolhida.getBytesRecebidos() / (1024 * 1024));
 
@@ -89,7 +89,7 @@ public class RegistroController {
     }
 
     public void inserirDownload() {
-        RedeInterface redeEscolhida = rede.getGrupoDeInterfaces().getInterfaces().get(0);
+        RedeInterface redeEscolhida = rede.getGrupoDeInterfaces().getInterfaces().get(1);
 
         Double download = (double) (redeEscolhida.getBytesEnviados() / (1024 * 1024));
 

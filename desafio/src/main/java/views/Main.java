@@ -20,6 +20,11 @@ public class Main {
             opcaoEscolhida = leitor.nextInt();
 
             if (opcaoEscolhida == 1) {
+
+                login.mostrarInterface();
+
+            } else if (opcaoEscolhida == 2) {
+
                 loginValidado = login.entrar();
 
                 if(loginValidado){
@@ -51,7 +56,7 @@ public class Main {
 
             }
 
-        } while (opcaoEscolhida != 2);
+        } while (opcaoEscolhida != 3);
 
     }
 }

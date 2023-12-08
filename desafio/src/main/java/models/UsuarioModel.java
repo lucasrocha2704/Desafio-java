@@ -23,6 +23,10 @@ public class UsuarioModel {
         return usuarioDao.buscarUsuario(email);
     }
 
+    public Integer cadastrar(Integer empresa, String nome, String senha, String cpf, String email){
+        return usuarioDao.inserirUsuario(empresa, nome, cpf, email, senha);
+    }
+
     public String getSenha() {
         return senha;
     }
