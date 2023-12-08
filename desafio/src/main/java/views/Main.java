@@ -10,10 +10,12 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
 
         Login login = new Login();
+        Cadastro cadastro = new Cadastro();
         RegistroController registroController = new RegistroController();
+        Scanner leitor = new Scanner(System.in);
+
         int opcaoEscolhida;
         Boolean loginValidado;
-        Scanner leitor = new Scanner(System.in);
 
         do {
             login.menuLogin();
@@ -21,7 +23,7 @@ public class Main {
 
             if (opcaoEscolhida == 1) {
 
-                login.mostrarInterface();
+                cadastro.mostrarInterface();
 
             } else if (opcaoEscolhida == 2) {
 
