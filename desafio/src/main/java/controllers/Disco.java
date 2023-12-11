@@ -28,7 +28,7 @@ public class Disco extends ComponenteController{
         }
         Integer fkComponent = componenteModel.getIdComponenteServidor();
 
-        Double totalDisponivel = (volumes.get(0).getDisponivel())/(1e9);
+        Double totalDisponivel = (double) ((volumes.get(0).getDisponivel())/(1073741824));
         registroModel.inserirDadosBanco(totalDisponivel, fkComponent);
     }
 }

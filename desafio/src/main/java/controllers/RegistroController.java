@@ -17,7 +17,6 @@ public class RegistroController {
     private final Processos grupoDeProcesso;
     private final Download downloadLooca;
     private final Upload uploadLooca;
-    private final ComponenteModel componenteModel;
     private final RegistroModel registroModel;
 
     public RegistroController() {
@@ -29,7 +28,6 @@ public class RegistroController {
         this.uploadLooca = new Upload();
         this.grupoDeProcesso = new Processos();
         this.registroModel = new RegistroModel();
-        this.componenteModel = new ComponenteModel();
     }
 
     public String getDados(Boolean cpu,Boolean ram, Boolean disco, Boolean upload, Boolean download, Boolean processo){
