@@ -1,10 +1,11 @@
-package controllers;
+package controllers.componentes;
 
 import com.github.britooo.looca.api.group.processador.Processador;
+import controllers.ComponenteController;
 import models.ComponenteModel;
 import models.RegistroModel;
 
-public class CPU extends ComponenteController{
+public class CPU extends ComponenteController {
 
     private final Processador processador;
     private final ComponenteModel componenteModel;

@@ -1,7 +1,7 @@
 package dao;
 
+import dao.rowMapper.RegistroRowMapper;
 import models.RegistroModel;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.math.BigDecimal;
@@ -37,7 +37,7 @@ public class RegistroDao {
     public List<RegistroModel> selectComponente(String componente) {
         String select = "SELECT Registro FROM tabelaRegistros " +
                 "WHERE Componente = '"+componente+"' ORDER BY MomentoRegistro DESC LIMIT 1";
-        return con.query(select, new BeanPropertyRowMapper<>(RegistroModel.class));
+        return con.query(select, new RegistroRowMapper());
     }
 
     public String getFormatter() {

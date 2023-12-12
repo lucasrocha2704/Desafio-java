@@ -27,6 +27,46 @@ public class UsuarioModel {
         return usuarioDao.inserirUsuario(empresa, nome, cpf, email, senha);
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(int empresa) {
+        this.empresa = empresa;
+    }
+
+    public int getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(int admin) {
+        this.admin = admin;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getSenha() {
         return senha;
     }
@@ -41,14 +81,6 @@ public class UsuarioModel {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public UsuarioDao getUsuarioDao() {

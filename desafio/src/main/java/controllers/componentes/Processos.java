@@ -1,13 +1,14 @@
-package controllers;
+package controllers.componentes;
 
 import com.github.britooo.looca.api.group.processos.Processo;
 import com.github.britooo.looca.api.group.processos.ProcessoGrupo;
+import controllers.ComponenteController;
 import models.ComponenteModel;
 import models.RegistroModel;
 
 import java.util.List;
 
-public class Processos extends ComponenteController{
+public class Processos extends ComponenteController {
 
     private final ProcessoGrupo grupoDeProcesso;
     private final ComponenteModel componenteModel;

@@ -1,17 +1,18 @@
-package controllers;
+package controllers.componentes;
 
 import com.github.britooo.looca.api.group.rede.Rede;
 import com.github.britooo.looca.api.group.rede.RedeInterface;
+import controllers.ComponenteController;
 import models.ComponenteModel;
 import models.RegistroModel;
 
-public class Upload extends ComponenteController{
+public class Download extends ComponenteController {
 
     private final Rede rede;
     private final ComponenteModel componenteModel;
     private final RegistroModel registroModel;
 
-    public Upload() {
+    public Download() {
         this.rede = getLooca().getRede();
         this.componenteModel = getComponenteModel();
         this.registroModel = getRegistroModel();
@@ -22,14 +23,14 @@ public class Upload extends ComponenteController{
 
         RedeInterface redeEscolhida = rede.getGrupoDeInterfaces().getInterfaces().get(1);
 
-        Double upload = (double) (redeEscolhida.getBytesRecebidos() / (1024 * 1024));
+        Double download = (double) (redeEscolhida.getBytesEnviados() / (1024 * 1024));
 
-        for (ComponenteModel model : componenteModel.pegarComponentePorNome("Upload")) {
+        for (ComponenteModel model : componenteModel.pegarComponentePorNome("Download")) {
             componenteModel.setIdComponenteServidor(model.getIdComponenteServidor());
         }
 
         Integer fkComponent = componenteModel.getIdComponenteServidor();
 
-        registroModel.inserirDadosBanco(upload,fkComponent);
+        registroModel.inserirDadosBanco(download,fkComponent);
     }
 }

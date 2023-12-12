@@ -1,6 +1,6 @@
 package dao;
 
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import dao.rowMapper.ServidorRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import models.ServidorModel;
 
@@ -17,18 +17,18 @@ public class ServidorDao {
     public List<ServidorModel> pegarServidores(){
         return con.query(
                 "SELECT * FROM servidor;",
-                new BeanPropertyRowMapper<>(ServidorModel.class));
+                new ServidorRowMapper());
     }
 
     public List<ServidorModel> pegarServidoresPorId(int id){
         return con.query(
                 "SELECT * FROM servidor WHERE idServidor = ?;",
-                new BeanPropertyRowMapper<>(ServidorModel.class), id);
+               new ServidorRowMapper(), id);
     }
 
     public List<ServidorModel> pegarServidoresPorLocal(int idLocal){
         return con.query(
                 "SELECT * FROM servidor WHERE idServidor = ?;",
-                new BeanPropertyRowMapper<>(ServidorModel.class), idLocal);
+                new ServidorRowMapper(), idLocal);
     }
 }

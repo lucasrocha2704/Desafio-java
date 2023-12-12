@@ -1,13 +1,14 @@
-package controllers;
+package controllers.componentes;
 
 import com.github.britooo.looca.api.group.discos.DiscoGrupo;
 import com.github.britooo.looca.api.group.discos.Volume;
+import controllers.ComponenteController;
 import models.ComponenteModel;
 import models.RegistroModel;
 
 import java.util.List;
 
-public class Disco extends ComponenteController{
+public class Disco extends ComponenteController {
 
     private final DiscoGrupo grupoDeDiscos;
     private final ComponenteModel componenteModel;

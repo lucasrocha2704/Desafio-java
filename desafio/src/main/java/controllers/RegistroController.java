@@ -1,13 +1,8 @@
 package controllers;
 
 import com.github.britooo.looca.api.core.Looca;
-import com.github.britooo.looca.api.group.processos.Processo;
-import com.github.britooo.looca.api.group.processos.ProcessoGrupo;
-import com.github.britooo.looca.api.group.rede.Rede;
-import models.ComponenteModel;
+import controllers.componentes.*;
 import models.RegistroModel;
-
-import java.util.List;
 
 public class RegistroController {
 

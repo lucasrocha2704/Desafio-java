@@ -1,7 +1,8 @@
 package dao;
 
+import dao.rowMapper.ComponenteRowMapper;
 import models.ComponenteModel;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public class ComponenteDao {
 
         return (con.query(
                 "SELECT idComponenteServidor FROM componenteServidor JOIN componente ON fkComponente = idComponente WHERE nome = ? LIMIT 1",
-                new BeanPropertyRowMapper<>(ComponenteModel.class), componente));
+                new ComponenteRowMapper(), componente));
     }
 
 }

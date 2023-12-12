@@ -1,8 +1,9 @@
 package dao;
 
+import dao.rowMapper.EmpresaRowMapper;
+import dao.rowMapper.UsuarioRowMapper;
 import models.EmpresaModel;
 import models.UsuarioModel;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class UsuarioDao {
 
         usuarios = (con.query(
                 "SELECT * FROM usuario WHERE email= ?",
-                new BeanPropertyRowMapper<>(UsuarioModel.class), email));
+                new UsuarioRowMapper(), email));
 
         return usuarios;
     }
@@ -34,7 +35,7 @@ public class UsuarioDao {
 
     public List<EmpresaModel> mostrarEmpresas(){
         String select = "SELECT * FROM Empresa";
-        return con.query(select, new BeanPropertyRowMapper<>(EmpresaModel.class));
+        return con.query(select, new EmpresaRowMapper());
     }
 
 }

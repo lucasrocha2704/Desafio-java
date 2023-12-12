@@ -1,10 +1,11 @@
-package controllers;
+package controllers.componentes;
 
 import com.github.britooo.looca.api.group.memoria.Memoria;
+import controllers.ComponenteController;
 import models.ComponenteModel;
 import models.RegistroModel;
 
-public class RAM extends ComponenteController{
+public class RAM extends ComponenteController {
 
     private final Memoria memoria;
     private final ComponenteModel componenteModel;
