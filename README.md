@@ -16,7 +16,7 @@ que está localizado na pasta controllers/componetes/Upload
 ```
 public void inserir() {
 
-        RedeInterface redeEscolhida = rede.getGrupoDeInterfaces().getInterfaces().get(1);
+        RedeInterface redeEscolhida = rede.getGrupoDeInterfaces().getInterfaces().get('i');
 
         Double upload = (double) (redeEscolhida.getBytesRecebidos() / (1024 * 1024));
 
@@ -35,7 +35,7 @@ e na controllers/componetes/Download
 ```
 public void inserir() {
 
-        RedeInterface redeEscolhida = rede.getGrupoDeInterfaces().getInterfaces().get(1);
+        RedeInterface redeEscolhida = rede.getGrupoDeInterfaces().getInterfaces().get('i');
 
         Double download = (double) (redeEscolhida.getBytesEnviados() / (1024 * 1024));
 
@@ -48,3 +48,4 @@ public void inserir() {
         registroModel.inserirDadosBanco(download,fkComponent);
     }
 ```
+inserir o valor no local do 'i', que será a rede que será monitorada pela api 
