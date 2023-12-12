@@ -1,6 +1,5 @@
 package controllers;
 
-import com.github.britooo.looca.api.core.Looca;
 import controllers.componentes.*;
 import models.RegistroModel;
 
@@ -15,7 +14,6 @@ public class RegistroController {
     private final RegistroModel registroModel;
 
     public RegistroController() {
-        Looca looca = new Looca();
         this.memoria = new RAM();
         this.processador = new CPU();
         this.grupoDeDiscos = new Disco();

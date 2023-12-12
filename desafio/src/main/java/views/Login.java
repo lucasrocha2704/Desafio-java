@@ -3,14 +3,12 @@ package views;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Timer;
 
-import controllers.RegistroController;
 import controllers.UsuarioController;
 import models.UsuarioModel;
 
 public class Login {
-    private String email;
-    private String senha;
     private Boolean selecionadoCPU;
     private Boolean selecionadoRAM;
     private Boolean selecionadoDisco;
@@ -20,11 +18,8 @@ public class Login {
 
     List<UsuarioModel> usuarios;
     UsuarioController usuarioController = new UsuarioController();
-    RegistroController registroController = new RegistroController();
 
     public Login() {
-        this.email = null;
-        this.senha = null;
         this.usuarios = new ArrayList<>();
         this.selecionadoCPU = false;
         this.selecionadoRAM = false;
@@ -70,11 +65,23 @@ public class Login {
     }
 
     public void menuDados(){
-        String dados = registroController.getDados(selecionadoCPU, selecionadoRAM, selecionadoDisco, selecionadoUpload, selecionadoDownload, selecionadoProcesso);
-        System.out.printf("""
-                %s
-                @==================================@
-                %n""", dados);
+
+        Timer agendador = new Timer();
+
+        MensagemTask mensagem = new MensagemTask(10,
+                5000,
+                selecionadoCPU,
+                selecionadoRAM,
+                selecionadoDisco,
+                selecionadoUpload,
+                selecionadoDownload,
+                selecionadoProcesso);
+
+        agendador.schedule(
+                mensagem,
+                mensagem.getDelay(),
+                mensagem.getPeriodo()
+        );
     }
 
     public Boolean entrar() {
@@ -82,11 +89,9 @@ public class Login {
         Scanner leitor = new Scanner(System.in);
         System.out.println("Insira o seu e-mail:");
         String email = leitor.nextLine();
-        this.email = email;
 
         System.out.println("Insira a sua senha:");
         String senha = leitor.nextLine();
-        this.senha = senha;
 
         Boolean usuarioExiste = usuarioController.buscarUsuario(email, senha);
 
@@ -102,21 +107,6 @@ public class Login {
         }
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
 
     public void selecionarCPU(){
         this.selecionadoCPU = !selecionadoCPU;
@@ -148,28 +138,5 @@ public class Login {
         this.selecionadoUpload = true;
         this.selecionadoDownload = true;
         this.selecionadoProcesso = true;
-    }
-
-    public Boolean getSelecionadoCPU() {
-        return selecionadoCPU;
-    }
-
-    public Boolean getSelecionadoRAM() {
-        return selecionadoRAM;
-    }
-
-    public Boolean getSelecionadoDisco() {
-        return selecionadoDisco;
-    }
-
-    public Boolean getSelecionadoUpload() {
-        return selecionadoUpload;
-    }
-
-    public Boolean getSelecionadoDownload() {
-        return selecionadoDownload;
-    }
-    public Boolean getSelecionadoProcesso() {
-        return selecionadoProcesso;
     }
 }

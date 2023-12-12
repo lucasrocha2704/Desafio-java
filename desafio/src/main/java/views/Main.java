@@ -4,21 +4,23 @@ package views;
 
 import controllers.RegistroController;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
+
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
 
         Login login = new Login();
         Cadastro cadastro = new Cadastro();
         RegistroController registroController = new RegistroController();
         Scanner leitor = new Scanner(System.in);
 
-        int opcaoEscolhida;
+        int opcaoEscolhida = 0;
         Boolean loginValidado;
 
-        do {
-            login.menuLogin();
+        login.menuLogin();
+
+        while (opcaoEscolhida != 3) {
+
             opcaoEscolhida = leitor.nextInt();
 
             if (opcaoEscolhida == 1) {
@@ -30,7 +32,7 @@ public class Main {
                 loginValidado = login.entrar();
 
                 if(loginValidado){
-                    do {
+                    while(opcaoEscolhida != 8) {
 
                         login.menuMonitoramento();
                         opcaoEscolhida = leitor.nextInt();
@@ -45,20 +47,16 @@ public class Main {
                             case 7 -> login.selecionarTodos();
                         }
 
-                    } while(opcaoEscolhida != 8);
+                    }
 
                     registroController.exibirTituloMenu();
 
-                    do{
-
-                        login.menuDados();
-                        TimeUnit.SECONDS.sleep(5);
-                    } while (true);
+                    login.menuDados();
                 }
 
             }
 
-        } while (opcaoEscolhida != 3);
+        }
 
     }
 }
