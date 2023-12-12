@@ -34,7 +34,7 @@ public class UsuarioDao {
     }
 
     public List<EmpresaModel> mostrarEmpresas(){
-        String select = "SELECT * FROM Empresa";
+        String select = "SELECT * FROM Empresa where localidade != 'global'";
         return con.query(select, new EmpresaRowMapper());
     }
 
